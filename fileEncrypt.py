@@ -1,10 +1,9 @@
 from Crypto.Cipher import AES 
 from Crypto.Util.Padding import pad
-from Crypto.Random import get_random_bytes
 from base64 import b64encode
 
 
-key = input('Please insert your password: ')
+key = "password"
 key = key.encode('UTF-8')
 key = pad(key, AES.block_size)
 
