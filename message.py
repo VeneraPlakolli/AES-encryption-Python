@@ -30,23 +30,28 @@ key='12345'
 key=pad(key)
 key=key.encode('UTF-8')
 
-#Function call
-mesazhi_i_enkriptuar = encrypt(key)
-print(mesazhi_i_enkriptuar)
+enkript_ose_dekript=input("A po deshironi me enkriptu tekst apo me dekriptu\n Shtyp E(Enkriptim) ose D(Dekriptim)").lower()
 
-a=True
-mes = input("A po deshironin me e dekript: [p/j] ").lower()
+if enkript_ose_dekript=='e':
+    #Function call
+    mesazhi_i_enkriptuar = encrypt(key)
+    print(mesazhi_i_enkriptuar)
 
-#Checking if user wants to decrypt or not
-while a == True:
-    if mes=="p":
-        decript_msg = decrypt(key,mesazhi_i_enkriptuar)
-        print(decript_msg)
-        a=False
+elif enkript_ose_dekript=='d':
+    a=True
+    mes = input("A po deshironi te vazhoni me dekriptim: [p/j] ").lower()
 
-    elif mes=="j":
-        print("Programi ka perfunduar!")
-        a=False
+    #Checking if user wants to decrypt or not
+    while a == True:
+        if mes=="p":
+            mesazhi_per_dekriptim = input("Shkruani textin qe po deshironi me e dekriptu: ")
+            decript_msg = decrypt(key,mesazhi_per_dekriptim)
+            print(decript_msg)
+            a=False
 
-    else:
-     mes = input("A po deshironin me e dekript:\nJu lutemi shtypni j (per jo) ose p (per po):")
+        elif mes=="j":
+            print("Programi ka perfunduar!")
+            a=False
+
+        else:
+            mes = input("A po deshironin me dekriptu:\nJu lutemi shtypni j (per jo) ose p (per po):")
