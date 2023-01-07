@@ -21,7 +21,7 @@ def decrypt(key, ciphertext):
     #decryption with aes mode ecb
     cipher = AES.new(key, AES.MODE_ECB)
     data = cipher.decrypt(base64.b64decode(ciphertext.encode('utf-8')))
-    unpad = data.find('[')
+    unpad = data.find('['.encode('utf-8'))
     data = data[:unpad]
     return data
 
