@@ -3,7 +3,7 @@ from Crypto.Util.Padding import pad
 from base64 import b64encode
 
 
-key = "password"
+key = input("Shtypni password-in(celesi) per enkriptim:")
 key = key.encode('UTF-8')
 key = pad(key, AES.block_size)
 
