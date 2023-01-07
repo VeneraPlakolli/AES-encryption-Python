@@ -23,7 +23,7 @@ def decrypt(key, ciphertext):
     data = cipher.decrypt(base64.b64decode(ciphertext.encode('utf-8')))
     unpad = data.find('['.encode('utf-8'))
     data = data[:unpad]
-    return data
+    return data.decode('utf-8')
 
 #key generation
 key='12345'
