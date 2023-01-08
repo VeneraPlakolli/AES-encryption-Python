@@ -44,10 +44,13 @@ elif encrypt_or_decrypt=='d':
     #Checking if user wants to decrypt or not
     while a == True:
         if continue_decrypt=="p":
-            Decrypt_Text = input("\nShkruani textin qe po deshironi ta dekriptoni: ")
-            decript_msg = DecryptText(key_ecb,Decrypt_Text)
-            print(decript_msg)
-            a=False
+            try:
+                Decrypt_Text = input("\nShkruani textin qe po deshironi ta dekriptoni: ")
+                decript_msg = DecryptText(key_ecb,Decrypt_Text)
+                print(decript_msg)
+                a=False
+            except:
+                print("E dhena duhet te jete e enkriptuar me modin ECB")
 
         elif continue_decrypt=="j":
             print("Programi ka perfunduar!")
