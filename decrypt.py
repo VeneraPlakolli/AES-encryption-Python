@@ -20,7 +20,7 @@ with open(file_name, 'r') as entry:
         cipher = AES.new(key,AES.MODE_CBC,iv)
         decrypted = cipher.decrypt(ciphertext)
         decrypted = unpad(decrypted,AES.block_size)
-        with open('test.txt.dec','wb') as data:  
+        with open(file_name+".dec",'wb') as data:  
             data.write(decrypted)
         data.close()
         print("File i dekriptuar eshte ne folder!")
