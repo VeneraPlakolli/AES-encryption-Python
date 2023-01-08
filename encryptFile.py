@@ -8,16 +8,16 @@ key_aes = input("Shtypni password-in(celesi) per enkriptim: ")
 key_aes = key_aes.encode('UTF-8')
 key_aes = pad(key_aes, AES.block_size)
 
-def encryptFile(filename, key):
-    with open(filename, 'rb') as enc:  
-        data = enc.read()
-        cypher = AES.new(key, AES.MODE_CBC)  
-        cipherText = cypher.encrypt(pad(data,AES.block_size))
-        iVector = b64encode(cypher.iv).decode('UTF-8')
+def encryptFile(FILE_NAME, key):
+    with open(FILE_NAME, 'rb') as enc:  
+        data_to_read = enc.read()
+        aes_cypher = AES.new(key, AES.MODE_CBC)  
+        cipherText = aes_cypher.encrypt(pad(data_to_read,AES.block_size))
+        iVector = b64encode(aes_cypher.iv).decode('UTF-8')
         cipherText = b64encode(cipherText).decode('UTF-8')
-        write_Enc = iVector + cipherText
+        data_to_write = iVector + cipherText
     enc.close()
-    return write_Enc
+    return data_to_write
 
 
 file_name=input("Shkruani emrin e file-t qe doni te enkriptoni: ")
