@@ -8,7 +8,7 @@ key = getpass.getpass('Shkruaje password: ')
 key = key.encode('UTF-8')
 key = pad(key,AES.block_size)
 
-
+file_name=input("Shkruani emrin e file qe doni te dekriptoni: ")
 with open('test.txt.enc', 'r') as entry:  # could be 'rb'
     try:
         data = entry.read()
