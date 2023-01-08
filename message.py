@@ -1,4 +1,4 @@
-from Crypto.Cipher import AES 
+from Crypto.Cipher import AES as aesEncryption
 import base64
 
 
@@ -13,13 +13,13 @@ def EncryptText(key_ecb):
     plain_text = plain_text.encode('UTF-8')
 
     #Encryption with AES(mode ecb)
-    cipher_ecb = AES.new(key_ecb, AES.MODE_ECB)
+    cipher_ecb = aesEncryption.new(key_ecb, aesEncryption.MODE_ECB)
     ciphertext = cipher_ecb.encrypt(plain_text)
     return base64.b64encode(ciphertext).decode('UTF-8')
 
 def DecryptText(key_ecb, ciphertext):
     #decryption with aes mode ecb
-    cipher_ecb = AES.new(key_ecb, AES.MODE_ECB)
+    cipher_ecb = aesEncryption.new(key_ecb, aesEncryption.MODE_ECB)
     data = cipher_ecb.decrypt(base64.b64decode(ciphertext.encode('utf-8')))
     unpad = data.find('['.encode('utf-8'))
     data = data[:unpad]
