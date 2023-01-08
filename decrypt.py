@@ -8,8 +8,8 @@ key = getpass.getpass('Shkruaje password: ')
 key = key.encode('UTF-8')
 key = pad(key,AES.block_size)
 
-
-with open('test.txt.enc', 'r') as entry:  # could be 'rb'
+file_name=input("Shkruani emrin e file qe doni te dekriptoni: ")
+with open('test.txt.enc', 'r') as entry:  
     try:
         data = entry.read()
         length = len(data)
@@ -20,7 +20,7 @@ with open('test.txt.enc', 'r') as entry:  # could be 'rb'
         cipher = AES.new(key,AES.MODE_CBC,iv)
         decrypted = cipher.decrypt(ciphertext)
         decrypted = unpad(decrypted,AES.block_size)
-        with open('test.txt.dec','wb') as data:   # only 'wb' not 'w'
+        with open('test.txt.dec','wb') as data:  
             data.write(decrypted)
         data.close()
         print("File i dekriptuar eshte ne folder!")
