@@ -17,10 +17,10 @@ def encrypt(filename, key):
         to_write = iv + ciphertext
     entry.close()
     return to_write
-    
+
 
 file_name=input("Shkruni emrin e file qe doni te enkriptoni : ")
-print("Fajllin e enkriptuar e gjeni ne folderin tuaj!")
+print("Fajllin e enkriptuar me emrin "+file_name+".enc e gjeni ne folderin tuaj!")
 
 #Initializing the variable with encryption function result
 encrypted_file = encrypt(file_name, key)
