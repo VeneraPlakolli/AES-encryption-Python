@@ -25,7 +25,15 @@ def Decrypt(filename, key):
     file.write(data)
     file.close()
 
+a=True
+while a==True:
+    key = int(input("Shkruani nje celes ne intervalin 1-255: "))
+    if key <=255 & key>=1:
+        filename = input("Shkruani emrin e file: ")
+        Encrypt(filename, key)
+        a=False
+    else:
+        key = int(input("Ju lutemi shkruani nje celes ne intervalin 1-255: "))
+        a=True
 
-key = int(input("Shkruani nje celes ne intervalin 1-255: "))
-filename = input("Shkruani emrin e file: ")
-Encrypt(filename, key)
+    
