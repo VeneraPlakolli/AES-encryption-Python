@@ -6,7 +6,7 @@ def pad(entry):
     padded =  entry + (16-len(entry)%16)*'['
     return padded
 
-def encrypt(key):
+def enkriptimi_i_tekstit(key):
     #Getting text from user to encrypt
     plain_text = input("Shkruani tekstin qe po deshironi t'a enkriptoni: ")
     plain_text = pad(plain_text)
@@ -17,7 +17,7 @@ def encrypt(key):
     ciphertext = cipher.encrypt(plain_text)
     return base64.b64encode(ciphertext).decode('UTF-8')
 
-def decrypt(key, ciphertext):
+def dekriptimi_i_tekstit(key, ciphertext):
     #decryption with aes mode ecb
     cipher = AES.new(key, AES.MODE_ECB)
     data = cipher.decrypt(base64.b64decode(ciphertext.encode('utf-8')))
@@ -34,7 +34,7 @@ enkript_ose_dekript=input("\nA po deshironi te enkriptoni apo te dekriptoni teks
 
 if enkript_ose_dekript=='e':
     #Function call
-    mesazhi_i_enkriptuar = encrypt(key)
+    mesazhi_i_enkriptuar = enkriptimi_i_tekstit(key)
     print(mesazhi_i_enkriptuar)
 
 elif enkript_ose_dekript=='d':
@@ -45,7 +45,7 @@ elif enkript_ose_dekript=='d':
     while a == True:
         if mes=="p":
             mesazhi_per_dekriptim = input("\nShkruani textin qe po deshironi ta dekriptoni: ")
-            decript_msg = decrypt(key,mesazhi_per_dekriptim)
+            decript_msg = dekriptimi_i_tekstit(key,mesazhi_per_dekriptim)
             print(decript_msg)
             a=False
 
