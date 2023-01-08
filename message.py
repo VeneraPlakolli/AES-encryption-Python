@@ -8,7 +8,7 @@ def pad(entry):
 
 def encrypt(key):
     #Getting text from user to encrypt
-    plain_text = input("Shkruani tekstin qe po doni me e enkript: ")
+    plain_text = input("Shkruani tekstin qe po deshironi t'a enkriptoni: ")
     plain_text = pad(plain_text)
     plain_text = plain_text.encode('UTF-8')
 
@@ -30,7 +30,7 @@ key=input("Jepni celesin qe do ta perdorni per enkriptim/dekriptim: ")
 key=pad(key)
 key=key.encode('UTF-8')
 
-enkript_ose_dekript=input("\nA po deshironi me enkriptu tekst apo me dekriptu\n Shtyp E(Enkriptim) ose D(Dekriptim)").lower()
+enkript_ose_dekript=input("\nA po deshironi te enkriptoni apo te dekriptoni tekst\n Shtyp E(Enkriptim) ose D(Dekriptim)").lower()
 
 if enkript_ose_dekript=='e':
     #Function call
@@ -44,7 +44,7 @@ elif enkript_ose_dekript=='d':
     #Checking if user wants to decrypt or not
     while a == True:
         if mes=="p":
-            mesazhi_per_dekriptim = input("\nShkruani textin qe po deshironi me e dekriptu: ")
+            mesazhi_per_dekriptim = input("\nShkruani textin qe po deshironi ta dekriptoni: ")
             decript_msg = decrypt(key,mesazhi_per_dekriptim)
             print(decript_msg)
             a=False
@@ -54,4 +54,4 @@ elif enkript_ose_dekript=='d':
             a=False
 
         else:
-            mes = input("\nA po deshironin me dekriptu:\nJu lutemi shtypni j (per jo) ose p (per po):")
+            mes = input("\nA po deshironi te dekriptoni:\nJu lutemi shtypni j (per jo) ose p (per po):")
