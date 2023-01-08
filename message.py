@@ -50,7 +50,8 @@ elif encrypt_or_decrypt=='d':
                 print(decript_msg)
                 a=False
             except:
-                print("E dhena duhet te jete e enkriptuar me modin ECB")
+                print("E dhena duhet te jete e enkriptuar me modin ECB\n Dhe celesi i perdorur per dekriptim duhet te jete i njejte si per enkriptim")
+                a=False
 
         elif continue_decrypt=="j":
             print("Programi ka perfunduar!")
