@@ -2,6 +2,7 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 from base64 import b64decode
 import getpass
+import os.path
 
 
 key = getpass.getpass('Shkruaje password-in: ')
