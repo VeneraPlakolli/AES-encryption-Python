@@ -23,6 +23,6 @@ with open(file_name, 'r') as entry:
         with open(file_name+".dec",'wb') as data:  
             data.write(decrypted)
         data.close()
-        print("File i dekriptuar"+file_name+".dec eshte ne folder!")
+        print("File i dekriptuar "+file_name+".dec eshte ne folder!")
     except(ValueError,KeyError):
         print('password-i gabim')

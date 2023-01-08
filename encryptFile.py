@@ -1,6 +1,7 @@
 from Crypto.Cipher import AES 
 from Crypto.Util.Padding import pad
 from base64 import b64encode
+import os.path
 
 
 key_aes = input("Shtypni password-in(celesi) per enkriptim: ")
@@ -19,12 +20,18 @@ def encryptFile(filename, key):
     return write_Enc
 
 
-file_name=input("Shkruni emrin e file qe doni te enkriptoni: ")
-print("Fajllin e enkriptuar me emrin "+file_name+".enc e gjeni ne folderin tuaj!")
+file_name=input("Shkruani emrin e file-t qe doni te enkriptoni: ")
 
-#Initializing the variable with encryption function result
-encrypted_file = encryptFile(file_name, key_aes)
+try:
+    exist_file = os.path.exists(file_name)
+    if exist_file is True:
+         print("File-n e enkriptuar e gjeni ne folderin tuaj, me emrin: "+file_name+".enc")
 
-#Writing the text/image to a file
-with open(file_name+".enc", 'w') as f:   
-    f.write(encrypted_file)
+    #Initializing the variable with encryption function result
+    encrypted_file = encryptFile(file_name, key_aes)
+
+    #Writing the text/image to a file
+    with open(file_name+".enc", 'w') as f:   
+        f.write(encrypted_file)
+except:
+    print("File nuk ekziston ne folder")
