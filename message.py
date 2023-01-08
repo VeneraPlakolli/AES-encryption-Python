@@ -34,24 +34,24 @@ encrypt_or_decrypt=input("\nA po deshironi te enkriptoni apo te dekriptoni tekst
 
 if encrypt_or_decrypt=='e':
     #Function call
-    mesazhi_i_enkriptuar = EncryptText(key_ecb)
-    print(mesazhi_i_enkriptuar)
+    encrypted_message = EncryptText(key_ecb)
+    print(encrypted_message)
 
 elif encrypt_or_decrypt=='d':
     a=True
-    mes = input("\nA po deshironi te vazhoni me dekriptim: [p/j] ").lower()
+    continue_decrypt = input("\nA po deshironi te vazhoni me dekriptim: [p/j] ").lower()
 
     #Checking if user wants to decrypt or not
     while a == True:
-        if mes=="p":
+        if continue_decrypt=="p":
             Decrypt_Text = input("\nShkruani textin qe po deshironi ta dekriptoni: ")
             decript_msg = DecryptText(key_ecb,Decrypt_Text)
             print(decript_msg)
             a=False
 
-        elif mes=="j":
+        elif continue_decrypt=="j":
             print("Programi ka perfunduar!")
             a=False
 
         else:
-            mes = input("\nA po deshironi te dekriptoni:\nJu lutemi shtypni j (per jo) ose p (per po):")
+            continue_decrypt = input("\nA po deshironi te dekriptoni:\nJu lutemi shtypni j (per jo) ose p (per po):")
