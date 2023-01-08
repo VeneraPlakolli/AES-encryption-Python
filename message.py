@@ -6,46 +6,46 @@ def pad(entry):
     padded =  entry + (16-len(entry)%16)*'['
     return padded
 
-def enkriptimi_i_tekstit(key):
+def EncryptText(key_ecb):
     #Getting text from user to encrypt
     plain_text = input("Shkruani tekstin qe po deshironi t'a enkriptoni: ")
     plain_text = pad(plain_text)
     plain_text = plain_text.encode('UTF-8')
 
     #Encryption with AES(mode ecb)
-    cipher = AES.new(key, AES.MODE_ECB)
-    ciphertext = cipher.encrypt(plain_text)
+    cipher_ecb = AES.new(key_ecb, AES.MODE_ECB)
+    ciphertext = cipher_ecb.encrypt(plain_text)
     return base64.b64encode(ciphertext).decode('UTF-8')
 
-def dekriptimi_i_tekstit(key, ciphertext):
+def DecryptText(key_ecb, ciphertext):
     #decryption with aes mode ecb
-    cipher = AES.new(key, AES.MODE_ECB)
-    data = cipher.decrypt(base64.b64decode(ciphertext.encode('utf-8')))
+    cipher_ecb = AES.new(key_ecb, AES.MODE_ECB)
+    data = cipher_ecb.decrypt(base64.b64decode(ciphertext.encode('utf-8')))
     unpad = data.find('['.encode('utf-8'))
     data = data[:unpad]
     return data.decode('utf-8')
 
 #key generation
-key=input("Jepni celesin qe do ta perdorni per enkriptim/dekriptim: ")
-key=pad(key)
-key=key.encode('UTF-8')
+key_ecb=input("Jepni celesin qe do ta perdorni per enkriptim/dekriptim: ")
+key_ecb=pad(key_ecb)
+key_ecb=key_ecb.encode('UTF-8')
 
-enkript_ose_dekript=input("\nA po deshironi te enkriptoni apo te dekriptoni tekst\n Shtyp E(Enkriptim) ose D(Dekriptim)").lower()
+encrypt_or_decrypt=input("\nA po deshironi te enkriptoni apo te dekriptoni tekst\n Shtyp E(Enkriptim) ose D(Dekriptim): ").lower()
 
-if enkript_ose_dekript=='e':
+if encrypt_or_decrypt=='e':
     #Function call
-    mesazhi_i_enkriptuar = enkriptimi_i_tekstit(key)
+    mesazhi_i_enkriptuar = EncryptText(key_ecb)
     print(mesazhi_i_enkriptuar)
 
-elif enkript_ose_dekript=='d':
+elif encrypt_or_decrypt=='d':
     a=True
     mes = input("\nA po deshironi te vazhoni me dekriptim: [p/j] ").lower()
 
     #Checking if user wants to decrypt or not
     while a == True:
         if mes=="p":
-            mesazhi_per_dekriptim = input("\nShkruani textin qe po deshironi ta dekriptoni: ")
-            decript_msg = dekriptimi_i_tekstit(key,mesazhi_per_dekriptim)
+            Decrypt_Text = input("\nShkruani textin qe po deshironi ta dekriptoni: ")
+            decript_msg = DecryptText(key_ecb,Decrypt_Text)
             print(decript_msg)
             a=False
 
