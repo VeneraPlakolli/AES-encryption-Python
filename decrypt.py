@@ -9,6 +9,7 @@ key = key.encode('UTF-8')
 key = pad(key,AES.block_size)
 
 file_name=input("Shkruani emrin e file-t qe doni te dekriptoni: ")
+if os.path.exists(file_name)==True:
 with open(file_name, 'r') as entry:  
     try:
         data = entry.read()
@@ -25,4 +26,7 @@ with open(file_name, 'r') as entry:
         data.close()
         print("File i dekriptuar "+file_name+".dec eshte ne folder!")
     except(ValueError,KeyError):
-        print('password-i gabim')
+        print('password-i gabim'
+              
+else:
+              print("File i dhene nuk ekziston")
