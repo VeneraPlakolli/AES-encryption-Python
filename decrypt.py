@@ -11,7 +11,7 @@ key = pad(key,AES.block_size)
 
 file_name=input("Shkruani emrin e file-t qe doni te dekriptoni: ")
 if os.path.exists(file_name)==True:
-with open(file_name, 'r') as entry:  
+   with open(file_name, 'r') as entry:  
     try:
         data = entry.read()
         length = len(data)
